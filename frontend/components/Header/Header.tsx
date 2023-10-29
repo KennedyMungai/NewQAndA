@@ -12,11 +12,16 @@ import {
 } from '../ui/dropdown-menu'
 import { BsSun, BsMoon } from 'react-icons/bs'
 import { useTheme } from 'next-themes'
+import { ChangeEvent } from 'react'
 
 type Props = {}
 
 const Header = (props: Props) => {
 	const { setTheme } = useTheme()
+
+	const handleSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+		console.log(e.target.value)
+	}
 
 	return (
 		<nav className='h-[10vh] w-screen shadow-md flex flex-row justify-between p-5 dark:shadow-zinc-800'>
@@ -28,7 +33,10 @@ const Header = (props: Props) => {
 				</Link>
 			</div>
 			<div className='flex flex-row items-center gap-2'>
-				<Input placeholder='Search' />
+				<Input
+					placeholder='Search'
+					onChange={handleSearchInputChange}
+				/>
 				<Button type='submit'>Search</Button>
 			</div>
 			<div className='flex items-center gap-5'>

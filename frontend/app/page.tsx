@@ -1,3 +1,4 @@
+'use client'
 import { QuestionData, getUnansweredQuestions } from '@/QuestionsData'
 import QuestionList from '@/components/Questions/QuestionList'
 import { Button } from '@/components/ui/button'

@@ -2,7 +2,7 @@ import { QuestionData } from '@/QuestionsData'
 
 type Props = { data: QuestionData; showContent?: boolean }
 
-const Question = ({ data, showContent }: Props) => {
+const Question = ({ data, showContent = true }: Props) => {
 	return (
 		<div className='bg-zinc-200 m-2 p-4 rounded-sm'>
 			<div className=''>{data.title}</div>

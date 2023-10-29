@@ -1,4 +1,4 @@
-import { getUnansweredQuestions, questions } from '@/QuestionsData'
+import { getUnansweredQuestions } from '@/QuestionsData'
 import QuestionList from '@/components/Questions/QuestionList'
 import { Button } from '@/components/ui/button'
 
@@ -10,7 +10,7 @@ export default function Home() {
 				<Button>Ask A Question</Button>
 			</div>
 			<div className=''>
-				<QuestionList data={questions} />
+				<QuestionList data={getUnansweredQuestions()} />
 			</div>
 		</main>
 	)

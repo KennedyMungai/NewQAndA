@@ -1,5 +1,4 @@
 import { QuestionData } from '@/QuestionsData'
-import React, { ReactNode } from 'react'
 
 type Props = {
 	data: QuestionData[]

@@ -1,5 +1,4 @@
 'use client'
-
 import Link from 'next/link'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
@@ -12,12 +11,20 @@ import {
 } from '../ui/dropdown-menu'
 import { BsSun, BsMoon } from 'react-icons/bs'
 import { useTheme } from 'next-themes'
-import { ChangeEvent } from 'react'
+import { ChangeEvent, useState } from 'react'
+import ThemeToggle from './ThemeToggle'
+import UserProfile from './UserProfile'
 
 type Props = {}
 
 const Header = (props: Props) => {
+	const [signedIn, setSignedIn] = useState(false)
+
 	const { setTheme } = useTheme()
+
+	const authHandler = () => {
+		console.log('authHandler')
+	}
 
 	const handleSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
 		console.log(e.target.value)
@@ -40,29 +47,8 @@ const Header = (props: Props) => {
 				<Button type='submit'>Search</Button>
 			</div>
 			<div className='flex items-center gap-5'>
-				<Avatar>
-					<AvatarImage src={''} alt='Profile Image' />
-					<AvatarFallback>PI</AvatarFallback>
-				</Avatar>
-				<DropdownMenu>
-					<DropdownMenuTrigger asChild>
-						<Button variant={'outline'} size={'icon'}>
-							<BsSun className='h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0' />
-							<BsMoon className='absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100' />
-						</Button>
-					</DropdownMenuTrigger>
-					<DropdownMenuContent align='end'>
-						<DropdownMenuItem onClick={() => setTheme('light')}>
-							Light
-						</DropdownMenuItem>
-						<DropdownMenuItem onClick={() => setTheme('dark')}>
-							Dark
-						</DropdownMenuItem>
-						<DropdownMenuItem onClick={() => setTheme('system')}>
-							System
-						</DropdownMenuItem>
-					</DropdownMenuContent>
-				</DropdownMenu>
+				<UserProfile isLoggedIn={signedIn} authHandler={authHandler} />
+				<ThemeToggle />
 			</div>
 		</nav>
 	)

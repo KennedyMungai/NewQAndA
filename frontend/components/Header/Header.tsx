@@ -1,4 +1,10 @@
 'use client'
+import {
+	closeModal,
+	openModal,
+	selectModalState
+} from '@/Redux/features/AuthModal/authModal'
+import { useAppDispatch, useAppSelector } from '@/Redux/hooks'
 import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import { ChangeEvent, useState } from 'react'
@@ -11,6 +17,17 @@ type Props = {}
 
 const Header = (props: Props) => {
 	const [signedIn, setSignedIn] = useState(false)
+
+	const isModalOpen = useAppSelector((state) => selectModalState)
+	const dispatch = useAppDispatch()
+
+	const activateModal = () => {
+		dispatch(openModal)
+	}
+
+	const deactivateModal = () => {
+		dispatch(closeModal)
+	}
 
 	const { setTheme } = useTheme()
 
@@ -39,7 +56,12 @@ const Header = (props: Props) => {
 				<Button type='submit'>Search</Button>
 			</div>
 			<div className='flex items-center gap-5'>
-				<UserProfile isLoggedIn={signedIn} authHandler={authHandler} />
+				<UserProfile
+					isLoggedIn={signedIn}
+					authHandler={authHandler}
+					openModal={activateModal}
+					closeModal={deactivateModal}
+				/>
 				<ThemeToggle />
 			</div>
 		</nav>

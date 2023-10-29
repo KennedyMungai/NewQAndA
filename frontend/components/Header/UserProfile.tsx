@@ -6,9 +6,16 @@ import { Button } from '../ui/button'
 type Props = {
 	isLoggedIn: boolean
 	authHandler: () => void
+	openModal: () => void
+	closeModal: () => void
 }
 
-const UserProfile = ({ isLoggedIn, authHandler }: Props) => {
+const UserProfile = ({
+	isLoggedIn,
+	authHandler,
+	openModal,
+	closeModal
+}: Props) => {
 	return (
 		<div>
 			{isLoggedIn ? (

@@ -8,7 +8,7 @@ const initialState: IModalState = {
     isOpen: false
 }
 
-const authModal = createSlice({
+const AuthModal = createSlice({
     name: "AuthModal",
     initialState,
     reducers: {
@@ -21,6 +21,6 @@ const authModal = createSlice({
     }
 })
 
-export const { openModal, closeModal } = authModal.actions
+export const { openModal, closeModal } = AuthModal.actions
 
-export default authModal.reducer
+export default AuthModal.reducer

@@ -10,7 +10,7 @@ export default function Home() {
 				<Button>Ask A Question</Button>
 			</div>
 			<div className=''>
-				<QuestionList data={getUnansweredQuestions()} />
+				{/* <QuestionList data={getUnansweredQuestions()} /> */}
 			</div>
 		</main>
 	)

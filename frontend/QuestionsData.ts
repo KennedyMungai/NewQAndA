@@ -14,7 +14,7 @@ export interface AnswerData {
     created: Date
 }
 
-const questions: QuestionData[] = [
+export const questions: QuestionData[] = [
     {
         questionId: 1,
         title: 'Why should I learn TypeScript?',

@@ -3,6 +3,7 @@ import { Open_Sans } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header/Header'
 import ThemeProvider from '@/components/Providers/ThemeProvider'
+import ReduxProvider from '@/components/Providers/ReduxProvider'
 
 const open_sans = Open_Sans({ subsets: ['latin'] })
 
@@ -19,15 +20,17 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={open_sans.className}>
-				<ThemeProvider
-					attribute='class'
-					defaultTheme='system'
-					enableSystem
-					disableTransitionOnChange={false}
-				>
-					<Header />
-					{children}
-				</ThemeProvider>
+				<ReduxProvider>
+					<ThemeProvider
+						attribute='class'
+						defaultTheme='system'
+						enableSystem
+						disableTransitionOnChange={false}
+					>
+						<Header />
+						{children}
+					</ThemeProvider>
+				</ReduxProvider>
 			</body>
 		</html>
 	)

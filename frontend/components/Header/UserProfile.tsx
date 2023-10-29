@@ -1,3 +1,4 @@
+'use client'
 import { Avatar, AvatarImage, AvatarFallback } from '../ui/avatar'
 import React from 'react'
 import { Button } from '../ui/button'

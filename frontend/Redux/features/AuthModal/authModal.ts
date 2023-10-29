@@ -1,3 +1,4 @@
+import { RootState } from "@/Redux/store";
 import { createSlice } from "@reduxjs/toolkit";
 
 interface IModalState {
@@ -22,5 +23,7 @@ const AuthModal = createSlice({
 })
 
 export const { openModal, closeModal } = AuthModal.actions
+
+export const selectModalState = (state: RootState) => state.authModal.isOpen
 
 export default AuthModal.reducer

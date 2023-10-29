@@ -19,10 +19,10 @@ const Header = (props: Props) => {
 	const { setTheme } = useTheme()
 
 	return (
-		<nav className='h-[10vh] w-screen shadow-md flex flex-row justify-between p-5'>
+		<nav className='h-[10vh] w-screen shadow-md flex flex-row justify-between p-5 dark:shadow-zinc-800'>
 			<div className='flex items-center'>
 				<Link href={'/'}>
-					<h1 className='uppercase font-bold text-zinc-700 text-2xl hover:bg-zinc-100 p-2 rounded-sm transition'>
+					<h1 className='uppercase font-bold text-zinc-700 text-2xl hover:bg-zinc-100 p-2 rounded-sm transition dark:text-zinc-50 dark:hover:bg-zinc-800'>
 						Q and A
 					</h1>
 				</Link>

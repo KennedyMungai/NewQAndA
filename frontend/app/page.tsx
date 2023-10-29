@@ -2,6 +2,7 @@
 import { QuestionData, getUnansweredQuestions } from '@/QuestionsData'
 import QuestionList from '@/components/Questions/QuestionList'
 import { Button } from '@/components/ui/button'
+import { Skeleton } from '@/components/ui/skeleton'
 import { useEffect, useState } from 'react'
 
 export default function Home() {
@@ -26,7 +27,11 @@ export default function Home() {
 				<Button>Ask A Question</Button>
 			</div>
 			<div className=''>
-				<QuestionList data={questions} />
+				{questionsLoading ? (
+					<Skeleton className='h-40 w-80' />
+				) : (
+					<QuestionList data={questions} />
+				)}
 			</div>
 		</main>
 	)

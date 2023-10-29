@@ -4,7 +4,7 @@ type Props = { data: QuestionData }
 
 const Question = ({ data }: Props) => {
 	return (
-		<div>
+		<div className='bg-zinc-200 m-2 p-4 rounded-sm'>
 			<div className=''>{data.title}</div>
 			<div className=''>
 				{data.content.length > 50

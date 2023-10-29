@@ -17,8 +17,10 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang='en'>
-			<Header />
-			<body className={open_sans.className}>{children}</body>
+			<body className={open_sans.className}>
+				<Header />
+				{children}
+			</body>
 		</html>
 	)
 }

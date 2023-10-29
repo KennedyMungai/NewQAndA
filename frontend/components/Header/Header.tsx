@@ -1,17 +1,9 @@
 'use client'
+import { useTheme } from 'next-themes'
 import Link from 'next/link'
+import { ChangeEvent, useState } from 'react'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
-import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuItem,
-	DropdownMenuTrigger
-} from '../ui/dropdown-menu'
-import { BsSun, BsMoon } from 'react-icons/bs'
-import { useTheme } from 'next-themes'
-import { ChangeEvent, useState } from 'react'
 import ThemeToggle from './ThemeToggle'
 import UserProfile from './UserProfile'
 

@@ -1,6 +1,6 @@
 'use client'
-import { QuestionData } from '@/QuestionsData'
-import React, { useState } from 'react'
+import { QuestionData, getQuestion } from '@/QuestionsData'
+import React, { useEffect, useState } from 'react'
 
 type Props = {
 	params: {
@@ -10,6 +10,17 @@ type Props = {
 
 const SingleQuestionPage = ({ params: { questionId } }: Props) => {
 	const [question, setQuestion] = useState<QuestionData | null>(null)
+
+	useEffect(() => {
+		const doGetQuestion = async (questionId: number) => {
+			const foundQuestion = await getQuestion(questionId)
+			setQuestion(foundQuestion)
+		}
+
+		if (questionId) {
+			doGetQuestion(parseInt(questionId))
+		}
+	}, [questionId])
 
 	return (
 		<div>

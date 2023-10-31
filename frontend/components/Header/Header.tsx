@@ -18,7 +18,7 @@ type Props = {}
 const Header = (props: Props) => {
 	const [signedIn, setSignedIn] = useState(false)
 
-	const isModalOpen = useAppSelector((state) => selectModalState)
+	const isModalOpen = useAppSelector(selectModalState)
 	const dispatch = useAppDispatch()
 
 	const activateModal = () => {

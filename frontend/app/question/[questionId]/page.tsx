@@ -1,8 +1,12 @@
 import React from 'react'
 
-type Props = {}
+type Props = {
+	params: {
+		questionId: string
+	}
+}
 
-const SingleQuestionPage = (props: Props) => {
+const SingleQuestionPage = ({ params: { questionId } }: Props) => {
 	return <div>SingleQuestionPage</div>
 }
 

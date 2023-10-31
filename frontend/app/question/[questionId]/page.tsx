@@ -7,7 +7,11 @@ type Props = {
 }
 
 const SingleQuestionPage = ({ params: { questionId } }: Props) => {
-	return <div>SingleQuestionPage</div>
+	return (
+		<div>
+			<p>{questionId}</p>
+		</div>
+	)
 }
 
 export default SingleQuestionPage

@@ -3,6 +3,7 @@ import { QuestionData, getUnansweredQuestions } from '@/QuestionsData'
 import QuestionList from '@/components/Questions/QuestionList'
 import { Button } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 export default function Home() {
@@ -28,7 +29,9 @@ export default function Home() {
 		<main className='h-[90vh] w-screen pt-5 px-5 flex flex-col items-center gap-10'>
 			<div className='flex flex-col gap-2'>
 				<h2>Unanswered Questions</h2>
-				<Button onClick={handleAskQuestionClick}>Ask A Question</Button>
+				<Button onClick={handleAskQuestionClick}>
+					<Link href='/ask'>Ask A Question</Link>
+				</Button>
 			</div>
 			<div className=''>
 				{questionsLoading ? (

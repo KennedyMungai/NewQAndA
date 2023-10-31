@@ -1,5 +1,6 @@
 import { AnswerData } from '@/QuestionsData'
 import React from 'react'
+import Answer from './Answer'
 
 type Props = {
 	data: AnswerData[]

@@ -5,9 +5,8 @@ import {
 	selectModalState
 } from '@/Redux/features/AuthModal/authModal'
 import { useAppDispatch, useAppSelector } from '@/Redux/hooks'
-import { useTheme } from 'next-themes'
 import Link from 'next/link'
-import { ChangeEvent, useState } from 'react'
+import { MouseEventHandler, useState } from 'react'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import ThemeToggle from './ThemeToggle'
@@ -17,6 +16,7 @@ type Props = {}
 
 const Header = (props: Props) => {
 	const [signedIn, setSignedIn] = useState(false)
+	const [searchItem, setSearchItem] = useState('')
 
 	const isModalOpen = useAppSelector(selectModalState)
 	const dispatch = useAppDispatch()
@@ -29,14 +29,12 @@ const Header = (props: Props) => {
 		dispatch(closeModal)
 	}
 
-	const { setTheme } = useTheme()
-
 	const authHandler = () => {
 		console.log('authHandler')
 	}
 
-	const handleSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-		console.log(e.target.value)
+	const searchItemHandler = (e: MouseEventHandler<HTMLInputElement>) => {
+		setSearchItem(e.name)
 	}
 
 	return (
@@ -51,9 +49,12 @@ const Header = (props: Props) => {
 			<div className='flex flex-row items-center gap-2'>
 				<Input
 					placeholder='Search'
-					onChange={handleSearchInputChange}
+					value={searchItem}
+					onChange={(e) => setSearchItem(e.target.value)}
 				/>
-				<Button type='submit'>Search</Button>
+				<Button type='submit'>
+					<Link href={`/search/${searchItem}`}>Search</Link>
+				</Button>
 			</div>
 			<div className='flex items-center gap-5'>
 				<UserProfile

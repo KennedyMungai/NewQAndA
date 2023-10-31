@@ -23,9 +23,9 @@ const SingleQuestionPage = ({ params: { questionId } }: Props) => {
 	}, [questionId])
 
 	return (
-		<div>
+		<section className='p-5 flex flex-col items-center'>
 			<p>{questionId}</p>
-		</div>
+		</section>
 	)
 }
 

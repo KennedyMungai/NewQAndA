@@ -1,3 +1,4 @@
+'use client'
 import { QuestionData } from '@/QuestionsData'
 import React, { useState } from 'react'
 

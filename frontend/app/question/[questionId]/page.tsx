@@ -1,4 +1,5 @@
-import React from 'react'
+import { QuestionData } from '@/QuestionsData'
+import React, { useState } from 'react'
 
 type Props = {
 	params: {
@@ -7,6 +8,8 @@ type Props = {
 }
 
 const SingleQuestionPage = ({ params: { questionId } }: Props) => {
+	const [question, setQuestion] = useState<QuestionData | null>(null)
+
 	return (
 		<div>
 			<p>{questionId}</p>

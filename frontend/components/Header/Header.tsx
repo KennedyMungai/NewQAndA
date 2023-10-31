@@ -52,7 +52,7 @@ const Header = (props: Props) => {
 					value={searchItem}
 					onChange={(e) => setSearchItem(e.target.value)}
 				/>
-				<Button type='submit'>
+				<Button type='submit' onClick={() => setSearchItem('')}>
 					<Link href={`/search/${searchItem}`}>Search</Link>
 				</Button>
 			</div>

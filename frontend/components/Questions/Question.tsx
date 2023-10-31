@@ -1,4 +1,5 @@
 import { QuestionData } from '@/QuestionsData'
+import AnswerList from '../Answers/AnswerList'
 
 type Props = { data: QuestionData; showContent?: boolean }
 
@@ -16,6 +17,7 @@ const Question = ({ data, showContent = true }: Props) => {
 			<div className=''>{`Asked by ${
 				data.userName
 			} on ${data.created.toLocaleDateString()} ${data.created.toLocaleTimeString()}`}</div>
+			<AnswerList data={data.answers} />
 		</div>
 	)
 }
